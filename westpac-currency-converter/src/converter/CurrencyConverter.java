@@ -20,7 +20,7 @@ import org.testng.annotations.*;
  */
 public class CurrencyConverter {
 	public String baseUrl = "https://www.westpac.co.nz/";
-	String driverPath = "D:\\CACTUS\\Jyothish\\WestPAc\\Drivers\\chromedriver.exe";
+	String driverPath = "\\Drivers\\chromedriver.exe";
 	public WebDriver driver;
 	public String expected = null;
 	public String actual = null;

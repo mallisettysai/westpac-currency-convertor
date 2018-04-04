@@ -2,6 +2,8 @@ package converter;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -20,7 +22,7 @@ import org.testng.annotations.*;
  */
 public class CurrencyConverter {
 	public String baseUrl = "https://www.westpac.co.nz/";
-	String driverPath = "\\Drivers\\chromedriver.exe";
+	String driverPath = "D:\\CACTUS\\Jyothish\\WestPAc\\Drivers\\chromedriver.exe";
 	public WebDriver driver;
 	public String expected = null;
 	public String actual = null;
@@ -60,7 +62,7 @@ public class CurrencyConverter {
 	 * @author Mallisetty_S
 	 */
 	@Test(priority = 0)
-	public void moveToCurrencyConvPage() throws InterruptedException {
+	public void moveToCurrencyConvPage() {
 		WebElement menuFxTravelMigrant = driver.findElement(menuFx);
 		Actions action = new Actions(driver);
 		action.moveToElement(menuFxTravelMigrant).perform();
@@ -68,7 +70,7 @@ public class CurrencyConverter {
 		action.moveToElement(btnCurrConv);
 		action.click();
 		action.perform();
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
 		driver.switchTo().frame("westpac-iframe");
 		expected = "Currency converter | International & Migrant - Westpac NZ";
 		actual = driver.getTitle();
@@ -80,12 +82,12 @@ public class CurrencyConverter {
 	 * Description : This method will validate the error message If there is no amount entered
 	 * @return void
 	 * @author Mallisetty_S
-	 * @throws InterruptedException
+	 * @throws InterruptedException 
 	 */
 	@Test(priority = 1)
 	public void convertWithoutCurrency() throws InterruptedException {
 		driver.findElement(btnConvert).click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		expected = "Please enter the amount you want to convert.";
 		actual = driver.findElement(lblErrorMsg).getText();
 		Assert.assertEquals(actual, expected);

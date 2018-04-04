@@ -34,12 +34,13 @@ public class CurrencyConverter {
 
 	By menuFx = By.id("ubermenu-section-link-fx-travel-and-migrant-ps");
 	By menuCurrencyConvertor = By.id("ubermenu-item-cta-currency-converter-ps");
-	By selConvertFrom = By.xpath("//select[@id='ConvertFrom']");
-	By txtAmount = By.xpath("//input[@id='Amount']");
-	By selConvertTo = By.xpath("//select[@id='ConvertTo']");
-	By btnConvert = By.xpath("//input[@id='convert']");
+	By selConvertFrom = By.id("ConvertFrom");
+	By txtAmount = By.id("Amount");
+	By selConvertTo = By.id("ConvertTo");
+	By btnConvert = By.id("convert");
 	By lblSucessMsg = By.xpath("//div[@id='resultsdiv']/em");
 	By lblErrorMsg = By.xpath("//div[@id='errordiv']//li");
+
 	
 	/**
 	 * Function Name : launchBrowser

@@ -27,6 +27,7 @@ public class CurrencyConverter {
 	public String expected = null;
 	public String actual = null;
 	Select droplist;
+	Select unknow;
 
 	/**
 	 * Definitions of the various objects in the page
